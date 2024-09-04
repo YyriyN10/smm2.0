@@ -1,0 +1,135 @@
+
+.error-404{
+  padding-top: 95px;
+  padding-bottom: 100px;
+  background-color: #ffffff;
+
+  @media(max-width: 1200px){
+    padding-bottom: 90px;
+  }
+
+  @media(max-width: 992px){
+    padding-bottom: 80px;
+  }
+
+  @media(max-width: 768px){
+    padding-top: 120px;
+    padding-bottom: 70px;
+  }
+
+  @media(max-width: 575px){
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+
+  .content{
+    text-align: center;
+
+    .text-404{
+      width: 740px;
+      margin: 0 auto;
+
+      @media(max-width: 992px){
+        width: 500px;
+      }
+
+      @media(max-width: 575px){
+        width: 290px;
+      }
+
+      p{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $accent;
+        font-size: 300px;
+        font-family: $f-Ex-bold;
+        line-height: 1.5;
+        margin-bottom: 0;
+
+        @media(max-width: 992px){
+          font-size: 210px;
+        }
+
+        @media(max-width: 575px){
+          font-size: 120px;
+        }
+
+        .raund-wrapper{
+          width: 212px;
+          height: 212px;
+          /*margin-top: -80px;*/
+          border-radius: 50%;
+          background-color: $accent;
+          position: relative;
+
+          @media(max-width: 992px){
+            width: 170px;
+            height: 170px;
+
+          }
+
+          @media(max-width: 575px){
+            width: 100px;
+            height: 100px;
+          }
+
+          .bottom-raund{
+            position: absolute;
+            width: 100%;
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+            overflow: hidden;
+            left: 0;
+            bottom: 0;
+
+            img{
+              width: 242px;
+              max-width: 242px;
+              height: auto;
+              display: block;
+
+              @media(max-width: 992px){
+                width: 200px;
+                max-width: 200px;
+              }
+
+              @media(max-width: 575px){
+                width: 120px;
+                max-width: 120px;
+              }
+            }
+          }
+
+          img{
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+
+    h3{
+      width: 650px;
+      margin: 0 auto 60px;
+      text-align: center;
+      font-size: 20px;
+      font-family: $f-S-bold;
+      color: #181A22;
+      line-height: 1.5;
+
+      @media(max-width: 992px){
+        width: 100%;
+        margin-bottom: 40px;
+        font-size: 18px;
+      }
+    }
+
+    .button{
+      background-color: $accent;
+      color: #ffffff !important;
+      padding-left: 35px;
+      padding-right: 35px;
+    }
+  }
+}

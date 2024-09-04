@@ -1,0 +1,36 @@
+<svg width="1300" height="215" viewBox="0 0 1300 215" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.1">
+<path d="M59.7885 59.0166H0V5.64443H188.407V59.0166H128.618V209.8H59.7885V59.0166Z" fill="url(#paint0QuizThx)"/>
+<path d="M407.523 5.64443V209.8H338.693V134.554H275.113V209.8H206.284V5.64443H275.113V77.9739H338.693V5.64443H407.523Z" fill="url(#paint1QuizThx)"/>
+<path d="M579.804 174.219H502.225L488.518 209.8H418.521L507.767 5.64443H575.43L664.675 209.8H593.512L579.804 174.219ZM560.847 124.638L541.015 73.3075L521.183 124.638H560.847Z" fill="url(#paint2QuizThx)"/>
+<path d="M876.899 5.64443V209.8H820.319L742.739 117.055V209.8H675.66V5.64443H732.24L809.819 98.3895V5.64443H876.899Z" fill="url(#paint3QuizThx)"/>
+<path d="M993.183 142.137L977.726 159.345V209.8H910.063V5.64443H977.726V79.7238L1044.81 5.64443H1119.76L1038.1 95.4729L1123.84 209.8H1044.22L993.183 142.137Z" fill="url(#paint4QuizThx)"/>
+<path d="M1204.92 214.467C1188.01 214.467 1171.48 212.619 1155.34 208.925C1139.4 205.036 1126.27 199.884 1115.97 193.468L1138.13 143.304C1147.86 148.942 1158.74 153.511 1170.8 157.011C1182.85 160.317 1194.42 161.969 1205.51 161.969C1215.03 161.969 1221.84 161.094 1225.92 159.345C1230 157.4 1232.05 154.581 1232.05 150.887C1232.05 146.609 1229.32 143.401 1223.88 141.262C1218.63 139.123 1209.88 136.79 1197.63 134.263C1181.88 130.957 1168.76 127.457 1158.26 123.763C1147.76 119.874 1138.62 113.653 1130.84 105.097C1123.07 96.3479 1119.18 84.5846 1119.18 69.8077C1119.18 56.975 1122.77 45.309 1129.97 34.8095C1137.16 24.3101 1147.86 16.0467 1162.05 10.0192C1176.44 3.99175 1193.84 0.978027 1214.25 0.978027C1228.25 0.978027 1241.96 2.5335 1255.38 5.64443C1268.99 8.56094 1280.95 12.9357 1291.25 18.7687L1270.54 68.641C1250.52 58.5305 1231.56 53.4752 1213.67 53.4752C1195.98 53.4752 1187.13 57.7528 1187.13 66.3078C1187.13 70.391 1189.76 73.5019 1195.01 75.6407C1200.26 77.585 1208.91 79.7238 1220.96 82.057C1236.52 84.9735 1249.64 88.3761 1260.34 92.2648C1271.03 95.959 1280.26 102.084 1288.04 110.639C1296.01 119.194 1300 130.86 1300 145.637C1300 158.47 1296.4 170.136 1289.21 180.635C1282.01 190.94 1271.22 199.203 1256.84 205.425C1242.64 211.453 1225.34 214.467 1204.92 214.467Z" fill="url(#paint5QuizThx)"/>
+</g>
+<defs>
+<linearGradient id="paint0QuizThx" x1="655.048" y1="-128.403" x2="655.048" y2="334.807" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+<linearGradient id="paint1QuizThx" x1="655.048" y1="-128.403" x2="655.048" y2="334.807" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+<linearGradient id="paint2QuizThx" x1="655.048" y1="-128.403" x2="655.048" y2="334.807" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+<linearGradient id="paint3QuizThx" x1="655.048" y1="-128.403" x2="655.048" y2="334.807" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+<linearGradient id="paint4QuizThx" x1="655.048" y1="-128.403" x2="655.048" y2="334.807" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+<linearGradient id="paint5QuizThx" x1="655.048" y1="-128.403" x2="655.048" y2="334.807" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+</defs>
+</svg>
