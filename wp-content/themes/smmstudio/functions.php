@@ -7,6 +7,10 @@
  * @package smmstudio
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
@@ -167,16 +171,18 @@ require get_template_directory() . '/inc/custom-post-types.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
 
-	if ( ! defined( 'ABSPATH' ) ) {
-		exit; // Exit if accessed directly
-	}
+	/**
+	 * Custom login
+	 */
+
+	require get_template_directory() . '/inc/custom-login-page.php';
+
+	/**
+	 * Polytranslations
+	 */
+
+	require get_template_directory() . '/inc/poly-translation.php';
 
 	define( 'SITE_URL', get_site_url() );
 	define( 'SITE_LOCALE', get_locale() );
