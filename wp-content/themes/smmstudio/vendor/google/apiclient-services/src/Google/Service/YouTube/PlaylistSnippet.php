@@ -26,7 +26,6 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   protected $localizedDataType = '';
   public $publishedAt;
   public $tags;
-  public $thumbnailVideoId;
   protected $thumbnailsType = 'Google_Service_YouTube_ThumbnailDetails';
   protected $thumbnailsDataType = '';
   public $title;
@@ -92,14 +91,6 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   public function getTags()
   {
     return $this->tags;
-  }
-  public function setThumbnailVideoId($thumbnailVideoId)
-  {
-    $this->thumbnailVideoId = $thumbnailVideoId;
-  }
-  public function getThumbnailVideoId()
-  {
-    return $this->thumbnailVideoId;
   }
   /**
    * @param Google_Service_YouTube_ThumbnailDetails

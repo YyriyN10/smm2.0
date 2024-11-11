@@ -8,14 +8,17 @@
 	 * Main form
 	 */
 
+	use PHPMailer\PHPMailer\PHPMailer;
+	use Telegram\Bot\Api;
+
 	add_action( 'admin_post_nopriv_main_contact_form', 'main_contact_form_callback' );
 	add_action( 'admin_post_main_contact_form', 'main_contact_form_callback' );
 
 
 	function main_contact_form_callback() {
 
-		require_once('vendor/autoload.php');
-		require_once ('Mobile_Detect.php');
+		require_once get_template_directory() . '/vendor/autoload.php';
+		require_once get_template_directory() . '/Mobile_Detect.php';
 
 		function clearData($data) {
 			return addslashes(strip_tags(trim($data)));
@@ -165,46 +168,33 @@
 			$thxName = '/pl/dzieki';
 		}
 
-		if( $spamFild == 'nospam' ){
+		if ( !empty($_POST) && wp_verify_nonce( $_POST['hash'], 'main_contact_form') && $spamFild == 'nospam'){
 
-			if( $name != 'smmstudio.com' && ($pageName != 'Thanks' || $pageName != 'Дякуємо' || $pageName != 'Спасибо' || $pageName != 'Dzięki')){
-				if(!empty($name) && !empty($email) && !empty($phone)) {
+			$messageUaNot = 'порно';
+			$messageEnNot = 'porno';
+			$messageRefNot = '<a href';
 
-					$messageUaNot = 'порно';
-					$messageEnNot = 'porno';
-					$messageRefNot = '<a href';
+			$messageSpamUa = strripos($message, $messageUaNot);
+			$messageSpamEn = strripos($message, $messageEnNot);
+			$messageSpamRef = strripos($message, $messageRefNot);
 
-					$messageSpamUa = strripos($message, $messageUaNot);
-					$messageSpamEn = strripos($message, $messageEnNot);
-					$messageSpamRef = strripos($message, $messageRefNot);
+			if ($messageSpamUa === false && $messageSpamEn === false && $messageSpamRef === false){
 
+				creatioIntegration($name, $email, $phone, $pageName, $message, $utmSource, $utmMedium, $utmCampaign, $utmTerm, $utmContent, $gclid, $lidSource, $addedServices);
 
-					if ($messageSpamUa === false && $messageSpamEn === false && $messageSpamRef === false){
+				duplicateToMail($name, $email, $phone, $pageName, $message, $utmSource, $utmMedium, $utmCampaign, $utmTerm, $utmContent, $gclid, $lidSource, $addedServices);
 
-
-						creatioIntegration($name, $email, $phone, $pageName, $message, $utmSource, $utmMedium, $utmCampaign, $utmTerm, $utmContent, $gclid, $lidSource,$addedServices);
-
-						duplicateToMail($name, $email, $phone, $pageName, $message, $utmSource, $utmMedium, $utmCampaign, $utmTerm, $utmContent, $gclid, $lidSource,$addedServices);
-
-						sendToTelegram($name, $email, $phone, $pageName, $message, $utmSource, $utmMedium, $utmCampaign, $utmTerm, $utmContent, $gclid, $lidSource,$addedServices);
-
-					}
-
-
-					header('Location:'.$homeUrl.$thxName.'');
-				}
+				sendToTelegram($name, $email, $phone, $pageName, $message, $utmSource, $utmMedium, $utmCampaign, $utmTerm, $utmContent, $gclid, $lidSource, $addedServices, '');
 
 			}else{
-
-				header('Location:'.$homeUrl.$thxName.'');
-
+				spamToMail($name, $email, $phone, $pageName, $message, $utmSource, $utmMedium, $utmCampaign, $utmTerm, $utmContent, $gclid, $lidSource,$addedServices);
+				sendToTelegram($name, $email, $phone, $pageName, $message, $utmSource, $utmMedium, $utmCampaign, $utmTerm, $utmContent, $gclid, $lidSource, $addedServices, 'spam');
 			}
 
 		}else{
 
 			spamToMail($name, $email, $phone, $pageName, $message, $utmSource, $utmMedium, $utmCampaign, $utmTerm, $utmContent, $gclid, $lidSource,$addedServices);
-
-			header('Location:'.$homeUrl.$thxName.'');
+			sendToTelegram($name, $email, $phone, $pageName, $message, $utmSource, $utmMedium, $utmCampaign, $utmTerm, $utmContent, $gclid, $lidSource, $addedServices, 'spam');
 		}
 
 		$cookie_name = "smmsend";
@@ -212,9 +202,11 @@
 
 		setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
 
+		header('Location:'.$homeUrl.$thxName.'');
+
 	}
 
-	add_action('wp_ajax_quiz_form', 'quiz_form_callback');
+	/*add_action('wp_ajax_quiz_form', 'quiz_form_callback');
 	add_action('wp_ajax_nopriv_quiz_form', 'quiz_form_callback');
 
 	function quiz_form_callback() {
@@ -317,8 +309,7 @@
 
 			}
 		}
-	}
-
+	}*/
 
 
 /**
@@ -466,7 +457,11 @@ function creatioIntegration($name, $email, $phone, $pageName, $message, $utmSour
 
 	//Create Note To Find Contact
 
-	$textNotation = $addedServices.'. Контакт існує, вказані данні - телефон: '.$phone.', пошта: '.$email.'.';
+	if ( $addedServices !== '' ){
+		$textNotation = $addedServices.'. Контакт існує, вказані данні - телефон: '.$phone.', пошта: '.$email.'.';
+	}else{
+		$textNotation = 'Контакт існує, вказані данні - телефон: '.$phone.', пошта: '.$email.'.';
+	}
 
 	//Create contact
 
@@ -614,9 +609,10 @@ function duplicateToMail( $name, $email, $phone, $pageName, $message, $utmSource
  * @param $gclid
  * @param $lidSource
  * @param $addedServices
+ * @param $spam
  */
 
-function sendToTelegram($name, $email, $phone, $pageName, $message, $utmSource, $utmMedium, $utmCampaign, $utmTerm, $utmContent, $gclid, $lidSource, $addedServices){
+function sendToTelegram($name, $email, $phone, $pageName, $message, $utmSource, $utmMedium, $utmCampaign, $utmTerm, $utmContent, $gclid, $lidSource, $addedServices, $spam ){
 
 	$telegram = new Api('1744882322:AAGaC3-8vCk9Up8VqeSPz_HAPhewUIyze24');
 
@@ -654,9 +650,15 @@ function sendToTelegram($name, $email, $phone, $pageName, $message, $utmSource, 
 
 	$user_agent = $_SERVER['HTTP_USER_AGENT'];
 
+	if ( $spam == '' ){
+		$lidName = '🚀НОВИЙ ЛІД💸';
+	}else{
+		$lidName = '🚀НОВИЙ СПАМ';
+	}
+
 	$response = $telegram->sendMessage([
 		'chat_id' => $telegramTargetChatId,
-		'text'    => '🚀НОВИЙ ЛІД💸'."\r\n"."\r\n".'Імʼя: '.$name."\r\n".'Телефон: '.$phone."\r\n".'Email: '.$email."\r\n".'Повідомлення: '.$message."\r\n".'Потрібні послуги: '.$addedServices."\r\n".'Сторінка заявки: '.$pageName."\r\n".'Країна: '.$country."\r\n".'Пристрій: '.$device."\r\n".'Інформація про пристрій: '.$user_agent."\r\n"."\r\n".'Аналітика'."\r\n"."\r\n".'utmSource: '.$utmSource."\r\n".'utmMedium: '.$utmMedium."\r\n".'utmCampaign: '.$utmCampaign."\r\n".'utmTerm: '. $utmTerm."\r\n".'utmContent: '.$utmContent."\r\n".'gsLid: '.$gclid.''
+		'text'    => $lidName."\r\n"."\r\n".'Імʼя: '.$name."\r\n".'Телефон: '.$phone."\r\n".'Email: '.$email."\r\n".'Повідомлення: '.$message."\r\n".'Потрібні послуги: '.$addedServices."\r\n".'Сторінка заявки: '.$pageName."\r\n".'Країна: '.$country."\r\n".'Пристрій: '.$device."\r\n".'Інформація про пристрій: '.$user_agent."\r\n"."\r\n".'Аналітика'."\r\n"."\r\n".'utmSource: '.$utmSource."\r\n".'utmMedium: '.$utmMedium."\r\n".'utmCampaign: '.$utmCampaign."\r\n".'utmTerm: '. $utmTerm."\r\n".'utmContent: '.$utmContent."\r\n".'gsLid: '.$gclid.''
 	]);
 }
 

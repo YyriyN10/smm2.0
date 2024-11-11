@@ -17,9 +17,9 @@
 
 ?>
 
-	<!-- Главный экран --->
+	<!-- Головний екран --->
 
-	<section class="main-serv-screen">
+	<section class="main-screen main-service-screen">
 		<div class="container">
 			<div class="row">
 				<div class="content col-12">

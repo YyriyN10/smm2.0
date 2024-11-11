@@ -24,6 +24,88 @@
 				false
 			);
 
+			pll_register_string(
+				'smmstudio_form_placeholder_phone',
+				'Телефон',
+				'Переклади у формах',
+				false
+			);
+
+			pll_register_string(
+				'smmstudio_form_placeholder_massage',
+				'Про проєкт',
+				'Переклади у формах',
+				false
+			);
+
+			pll_register_string(
+				'smmstudio_form_send',
+				'Відправити',
+				'Переклади у формах',
+				false
+			);
+
+			pll_register_string(
+				'smmstudio_form_policy_text',
+				'Приймаю умови користувацької угоди та',
+				'Переклади у формах',
+				false
+			);
+
+			pll_register_string(
+				'smmstudio_form_policy_link_text',
+				'політики конфіденційності',
+				'Переклади у формах',
+				false
+			);
+
+
+
+			pll_register_string(
+				'smmstudio_form_part_1_title',
+				'Вашому бізнесу необхідна',
+				'Переклади у формах',
+				false
+			);
+
+			pll_register_string(
+				'smmstudio_form_part_2_title',
+				'Заповніть форму',
+				'Переклади у формах',
+				false
+			);
+
+			pll_register_string(
+				'smmstudio_form_service_1',
+				'Таргетована реклама',
+				'Переклади у формах',
+				false
+			);
+
+			pll_register_string(
+				'smmstudio_form_service_2',
+				'Контексна реклама',
+				'Переклади у формах',
+				false
+			);
+
+			pll_register_string(
+				'smmstudio_form_service_3',
+				'SMM просування',
+				'Переклади у формах',
+				false
+			);
+
+			pll_register_string(
+				'smmstudio_form_service_4',
+				'Розробка сайтів',
+				'Переклади у формах',
+				false
+			);
+
+
+
+
 			/**
 			 * Переклади у кейсах
 			 */
@@ -40,22 +122,61 @@
 			 */
 
 			pll_register_string(
-				'smmstudio_button_name',
-				'Текст',
+				'smmstudio_btn_get_offer',
+				'Отримати пропозицію',
 				'Переклади кнопок',
 				false
 			);
+
+			pll_register_string(
+				'smmstudio_btn_send_application',
+				'Надіслати заявку',
+				'Переклади кнопок',
+				false
+			);
+
+			pll_register_string(
+				'smmstudio_btn_more_about',
+				'Більше про нас',
+				'Переклади кнопок',
+				false
+			);
+
+			pll_register_string(
+				'smmstudio_btn_all_cases',
+				'всі кейси',
+				'Переклади кнопок',
+				false
+			);
+
+			pll_register_string(
+				'smmstudio_btn_reed_more',
+				'Читати більше',
+				'Переклади кнопок',
+				false
+			);
+
+
 
 			/**
 			 * Переклади загальних елементів
 			 */
 
 			pll_register_string(
-				'smmstudio_general_name',
-				'Текст',
+				'smmstudio_general_trust_title',
+				'Вже довірили нам свої проєкти',
 				'Переклади загальних елементів',
 				false
 			);
+
+			pll_register_string(
+				'smmstudio_general_reviews_title',
+				'Відгуки про співпрацю',
+				'Переклади загальних елементів',
+				false
+			);
+
+
 
 
 

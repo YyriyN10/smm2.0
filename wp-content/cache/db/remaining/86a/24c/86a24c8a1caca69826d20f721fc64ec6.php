@@ -1,5 +1,0 @@
- ˜ýf<?php exit; ?>a:6:{s:10:"last_error";s:0:"";s:10:"last_query";s:344:"SELECT  t.term_id
-			 FROM smmwpstudio_terms AS t  INNER JOIN smmwpstudio_term_taxonomy AS tt ON t.term_id = tt.term_id INNER JOIN smmwpstudio_term_relationships AS pll_tr ON pll_tr.object_id = t.term_id
-			 WHERE tt.taxonomy IN ('cases-cat-tax') AND tt.parent = '0' AND tt.count > 0 AND pll_tr.term_taxonomy_id = 3
-			 ORDER BY t.name ASC
-			 ";s:11:"last_result";a:3:{i:0;O:8:"stdClass":1:{s:7:"term_id";s:3:"183";}i:1;O:8:"stdClass":1:{s:7:"term_id";s:2:"22";}i:2;O:8:"stdClass":1:{s:7:"term_id";s:2:"10";}}s:8:"col_info";a:1:{i:0;O:8:"stdClass":13:{s:4:"name";s:7:"term_id";s:7:"orgname";s:7:"term_id";s:5:"table";s:1:"t";s:8:"orgtable";s:17:"smmwpstudio_terms";s:3:"def";s:0:"";s:2:"db";s:17:"newsmmst_mainsite";s:7:"catalog";s:3:"def";s:10:"max_length";i:3;s:6:"length";i:20;s:9:"charsetnr";i:63;s:5:"flags";i:32801;s:4:"type";i:8;s:8:"decimals";i:0;}}s:8:"num_rows";i:3;s:10:"return_val";i:3;}

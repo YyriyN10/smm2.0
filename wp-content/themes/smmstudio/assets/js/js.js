@@ -8,15 +8,145 @@ jQuery(function($) {
 
     //Check Window Width
 
-    var winWid = jQuery(window).width();
-    var windHeig = jQuery(window).height();
+    let winWid = jQuery(window).width();
+    let windHeig = jQuery(window).height();
 
     jQuery(window).resize(function () {
         winWid = jQuery(window).width();
         windHeig = jQuery(window).height();
     });
 
-    //Fixed Menu
+  /**
+   * Hom page test slider
+   */
+
+  if( $('#main-text-slider').length){
+
+    $('#main-text-slider').slick({
+      autoplay: true,
+      autoplaySpeed: 4000,
+      slidesToShow: 1,
+      pauseOnHover: false,
+      slidesToScroll: 1,
+      arrows: false,
+      fade: true
+    });
+
+
+    let firstTaped = $('#main-text-slider .slick-current').attr('data-text');
+
+    let firstType = new Typed(".main-title .typed-number-1", {
+      strings: [firstTaped],
+      typeSpeed: 10,
+      showCursor: false,
+      loopCount:1
+    });
+
+    setTimeout(function () {
+      firstType.destroy();
+    },4000);
+
+
+    $('#main-text-slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+
+      let currentText = $('#main-text-slider .slick-current').attr('data-text');
+
+      let typed = new Typed(".main-title .typed-number-"+ (currentSlide + 1) +" ", {
+        strings: [currentText],
+        typeSpeed: 10,
+        showCursor: false,
+        loopCount:1
+      });
+
+      setTimeout(function () {
+        typed.destroy();
+      },4000);
+
+
+    });
+
+  }
+
+  /**
+   *
+   * Lang navigation
+   */
+
+  const langNavigation = $('#lang-wrapper');
+
+  langNavigation.find('.active-lang').text(langNavigation.find('.current-lang').text());
+
+  langNavigation.find('.active-lang').on('click', function (e) {
+    e.preventDefault();
+
+    $(this).toggleClass('open');
+
+    langNavigation.find('.lang-wrapper').slideToggle(200);
+
+  });
+
+
+  /**
+   * Home about us
+   */
+
+  if( $('.home-our-services').length ){
+
+    $('.home-our-services .nav-item:first-child .nav-link').addClass('active');
+
+    $('.home-our-services .tab-content .tab-pane:nth-child(2)').addClass('active');
+
+    console.log(100);
+  }
+
+  /**
+   * Client slider
+   */
+
+  if( $('#our-clients-slider').length ){
+
+    $('#our-clients-slider').slick({
+      autoplay: true,
+      autoplaySpeed: 500,
+      slidesToShow: 9,
+      pauseOnHover: false,
+      slidesToScroll: 1,
+      arrows: false,
+      fade: false,
+      rows: 2
+    });
+  }
+
+  /**
+   * New reviews slider
+   */
+
+  if( $('#new-rev-slider').length ){
+
+    $('#new-rev-slider').slick({
+      autoplay: false,
+      autoplaySpeed: 500,
+      slidesToShow: 4,
+      pauseOnHover: false,
+      slidesToScroll: 1,
+      arrows: false,
+      fade: false,
+    });
+
+  }
+
+  /**
+   * F.A.Q. accordion
+   */
+
+  if ( $('#accordion-faq').length ){
+
+    $('#accordion-faq .card:first-child .card-link').removeClass('collapsed');
+    $('#accordion-faq .card:first-child .collapse').addClass('show');
+
+  }
+
+  //Fixed Menu
 
     jQuery(document).scroll(function() {
         var y = jQuery(this).scrollTop();
@@ -342,7 +472,7 @@ jQuery(function($) {
 
     // Lazy load
 
-    jQuery('.lazy').lazy();
+    $('.lazy').lazy();
 
     //Web Solutions Mobile
 
@@ -443,7 +573,7 @@ jQuery(function($) {
           jQuery('#autoTargetformModal').modal('show');
           jQuery(document).off('mouseleave');
         });
-      }, 90000)
+      }, 90000);
     }
 
     jQuery('#autoTargetformModal').on('hidden.bs.modal', function () {
@@ -865,7 +995,7 @@ jQuery(function($) {
                 jQuery(this).addClass('focuse-prev');
                 var accentPic = jQuery(this).find('img').attr('src');
                 jQuery('.portfolio-slider-wrapper .desk-prev').css({'background-image' : 'url("'+accentPic+'")'});
-            })
+            });
         });
     }
 

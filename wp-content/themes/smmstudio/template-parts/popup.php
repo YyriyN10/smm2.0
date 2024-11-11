@@ -105,7 +105,8 @@
                       novalidate
                       data-toggle="validator"
                       id="form_pagePopup">
-                    <input type="hidden" name="action" value="contact_form">
+                    <input type="hidden" name="action" value="main_contact_form">
+	                <?php wp_nonce_field('main_contact_form','hash'); ?>
                     <div class="form-group">
                         <input type="text" name="name" class="form-control" placeholder="<?php echo $nameTextForm;?>" required>
                         <div class="invalid-feedback"><?php echo $errorTextForm;?></div>
@@ -120,7 +121,7 @@
                     </div>
 
                     <div class="form-group textarea-group">
-                        <textarea name="mess" class="form-control" placeholder="<?php echo $messTextForm;?>"></textarea>
+                        <textarea name="message" class="form-control" placeholder="<?php echo $messTextForm;?>"></textarea>
                     </div>
 
                     <div class="ch-button-wrapper">
@@ -187,7 +188,9 @@
                       novalidate
                       data-toggle="validator"
                       id="pop_up__lead_target">
-                    <input type="hidden" name="action" value="contact_form">
+                    <input type="hidden" name="action" value="main_contact_form">
+	                <?php wp_nonce_field('main_contact_form','hash'); ?>
+
                     <div class="form-group">
                         <input type="text" name="name" class="form-control" placeholder="<?php echo $nameTextForm;?>" required>
                         <div class="invalid-feedback"><?php echo $errorTextForm;?></div>

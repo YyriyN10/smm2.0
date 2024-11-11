@@ -45,44 +45,6 @@
     })(window,document,'script','dataLayer','GTM-PKXWWJD');</script>
 	<!-- End Google Tag Manager -->
 
-	<!-- <script src="//code.jivosite.com/widget/MP2o7AXE1B" async></script> -->
-	<!-- <script type='text/javascript'>
-	(function(){ document.jivositeloaded=0;var widget_id = 'MP2o7AXE1B';var d=document;var w=window;function l(){var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}
-	function zy(){
-
-			if(w.detachEvent){
-					w.detachEvent('onscroll',zy);
-					w.detachEvent('onmousemove',zy);
-					w.detachEvent('ontouchmove',zy);
-					w.detachEvent('onresize',zy);
-			}else {
-					w.removeEventListener("scroll", zy, false);
-					w.removeEventListener("mousemove", zy, false);
-					w.removeEventListener("touchmove", zy, false);
-					w.removeEventListener("resize", zy, false);
-			}
-
-			if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}
-
-			var cookie_date = new Date ( );
-			cookie_date.setTime ( cookie_date.getTime()+60*60*28*1000);
-			d.cookie = "JivoSiteLoaded=1;path=/;expires=" + cookie_date.toGMTString();
-	}
-	if (d.cookie.search ( 'JivoSiteLoaded' )<0){
-			if(w.attachEvent){
-					w.attachEvent('onscroll',zy);
-					w.attachEvent('onmousemove',zy);
-					w.attachEvent('ontouchmove',zy);
-					w.attachEvent('onresize',zy);
-			}else {
-					w.addEventListener("scroll", zy, {capture: false, passive: true});
-					w.addEventListener("mousemove", zy, {capture: false, passive: true});
-					w.addEventListener("touchmove", zy, {capture: false, passive: true});
-					w.addEventListener("resize", zy, {capture: false, passive: true});
-			}
-	}else {zy();}
-	})();</script> -->
-
 	<style>
 		.contact-form .messengers-wrapper .messengers{
 			justify-content: space-around !important;
@@ -99,8 +61,8 @@
 <!-- End Google Tag Manager (noscript) -->
 
 <div  class="wrapper">
-	<header>
-		<div class="container">
+	<header class="site-header">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="content col-12">
 					<?php if( is_front_page() ):?>
@@ -153,7 +115,6 @@
 						</a>
 					<?php endif;?>
 
-
 					<?php
 						wp_nav_menu(
 							array(
@@ -164,29 +125,15 @@
 							)
 						);
 					?>
-					<div class="phone-lang-wrapper">
-						<?php
-							$mainPhone = get_field('telefon', 'options');
-
-							$phoneToCall = preg_replace( '/[^0-9]/', '', $mainPhone);
-						?>
-						<a href="tel:<?php echo $phoneToCall;?>" class="phone binct-phone-number-1">
-                        <span>
-                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clipHeaderPhone)">
-                                    <path d="M9.72782 7.33899L8.33229 5.94346C7.83389 5.44506 6.9866 5.64444 6.78724 6.29234C6.63772 6.74093 6.13932 6.99013 5.69076 6.89043C4.69395 6.64123 3.34826 5.34538 3.09906 4.29873C2.94954 3.85015 3.24858 3.35174 3.69714 3.20224C4.34507 3.00288 4.54443 2.1556 4.04602 1.65719L2.65049 0.261662C2.25177 -0.0872206 1.65369 -0.0872206 1.30481 0.261662L0.357839 1.20863C-0.589128 2.20544 0.45752 4.84697 2.80002 7.18947C5.14251 9.53197 7.78405 10.6285 8.78086 9.63165L9.72782 8.68468C10.0767 8.28596 10.0767 7.68787 9.72782 7.33899Z" fill="white"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clipHeaderPhone">
-                                        <rect width="10" height="10" fill="white"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                        </span>
-
-							<?php echo $mainPhone;?>
-						</a>
-						<ul class="lang-wrapper" id="lang-nav">
+          <a href="#" rel="nofollow" class="button accent-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M0.0114107 1L0 9.55554L17.1429 12L0 14.4445L0.0114107 23L24 12L0.0114107 1Z" fill="#181818"/>
+            </svg>
+            <?php echo esc_html( pll__( 'Надіслати заявку' ) ); ?>
+          </a>
+					<div class="lang-wrapper" id="lang-wrapper">
+            <p class="active-lang"></p>
+						<ul class="lang-wrapper">
 							<?php
 
 								$langArgs = array(
@@ -200,14 +147,12 @@
 								pll_the_languages($langArgs);
 
 							?>
-
 						</ul>
 						<a href="#" class="mob-menu-btn" id="menu-btn">
 							<div></div>
 							<div></div>
 							<div></div>
 						</a>
-
 					</div>
 				</div>
 			</div>

@@ -1,8 +1,0 @@
-7¥ýf<?php exit; ?>a:6:{s:10:"last_error";s:0:"";s:10:"last_query";s:283:"
-					SELECT `post_type`, MAX(`post_modified_gmt`) AS `date`
-					FROM `smmwpstudio_posts`
-					WHERE `post_status` IN ('publish', 'inherit')
-						AND `post_type` IN ('post', 'page', 'attachment', 'reviews', 'cases', 'trust')
-					GROUP BY `post_type`
-					ORDER BY `date` DESC
-				";s:11:"last_result";a:6:{i:0;O:8:"stdClass":2:{s:9:"post_type";s:5:"cases";s:4:"date";s:19:"2024-07-29 07:32:45";}i:1;O:8:"stdClass":2:{s:9:"post_type";s:10:"attachment";s:4:"date";s:19:"2024-07-29 07:31:56";}i:2;O:8:"stdClass":2:{s:9:"post_type";s:4:"page";s:4:"date";s:19:"2024-05-20 13:07:46";}i:3;O:8:"stdClass":2:{s:9:"post_type";s:7:"reviews";s:4:"date";s:19:"2023-11-24 15:41:53";}i:4;O:8:"stdClass":2:{s:9:"post_type";s:5:"trust";s:4:"date";s:19:"2021-12-06 15:25:47";}i:5;O:8:"stdClass":2:{s:9:"post_type";s:4:"post";s:4:"date";s:19:"2020-12-30 15:30:16";}}s:8:"col_info";a:2:{i:0;O:8:"stdClass":13:{s:4:"name";s:9:"post_type";s:7:"orgname";s:9:"post_type";s:5:"table";s:17:"smmwpstudio_posts";s:8:"orgtable";s:17:"smmwpstudio_posts";s:3:"def";s:0:"";s:2:"db";s:17:"newsmmst_mainsite";s:7:"catalog";s:3:"def";s:10:"max_length";i:10;s:6:"length";i:80;s:9:"charsetnr";i:246;s:5:"flags";i:1;s:4:"type";i:253;s:8:"decimals";i:0;}i:1;O:8:"stdClass":13:{s:4:"name";s:4:"date";s:7:"orgname";s:0:"";s:5:"table";s:0:"";s:8:"orgtable";s:0:"";s:3:"def";s:0:"";s:2:"db";s:0:"";s:7:"catalog";s:3:"def";s:10:"max_length";i:19;s:6:"length";i:19;s:9:"charsetnr";i:63;s:5:"flags";i:128;s:4:"type";i:12;s:8:"decimals";i:0;}}s:8:"num_rows";i:6;s:10:"return_val";i:6;}

@@ -7,12 +7,10 @@
  * phpcs:disable WordPress.PHP
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	die();
-}
+defined( 'ABSPATH' ) || die;
 
 define( 'W3TC', true );
-define( 'W3TC_VERSION', '2.7.4' );
+define( 'W3TC_VERSION', '2.7.7' );
 define( 'W3TC_POWERED_BY', 'W3 Total Cache' );
 define( 'W3TC_EMAIL', 'w3tc@w3-edge.com' );
 define( 'W3TC_TEXT_DOMAIN', 'w3-total-cache' );
@@ -42,6 +40,11 @@ define( 'W3TC_PARTNER_IMH', 'https://api.w3-edge.com/v1/redirects/partners/imh' 
 define( 'W3TC_PARTNER_A2', 'https://api.w3-edge.com/v1/redirects/partners/a2' );
 define( 'W3TC_PARTNER_CONVESIO', 'https://api.w3-edge.com/v1/redirects/partners/convesio' );
 define( 'W3TC_PARTNER_DREAMHOST', 'https://api.w3-edge.com/v1/redirects/partners/dreamhost' );
+
+// Admin notices from API.
+if ( ! defined( 'W3TC_NOTICE_FEED' ) ) {
+	define( 'W3TC_NOTICE_FEED', 'https://api2.w3-edge.com/notices' );
+}
 
 // Image Service rate constants.
 define( 'W3TC_IMAGE_SERVICE_FREE_HLIMIT', 10 );

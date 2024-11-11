@@ -201,6 +201,12 @@ require get_template_directory() . '/inc/customizer.php';
 
 	}
 
+	/**
+	 * Carbon init
+	 */
+
+	require get_template_directory() . '/inc/carbon-init.php';
+
 
 /**
  * Ajax functions
@@ -209,9 +215,17 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/ajax-functions.php';
 
 
+
+
 //Site Send Mail To Amo
 	use PHPMailer\PHPMailer\PHPMailer;
 	use Telegram\Bot\Api;
+
+	/**
+	 * Form integration
+	 */
+
+	require get_template_directory() . '/inc/form-integration.php';
 
 	function contact_form_send_email_to_admin() {
 

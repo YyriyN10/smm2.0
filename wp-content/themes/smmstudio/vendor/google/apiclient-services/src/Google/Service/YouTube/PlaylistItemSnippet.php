@@ -28,8 +28,6 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   protected $thumbnailsType = 'Google_Service_YouTube_ThumbnailDetails';
   protected $thumbnailsDataType = '';
   public $title;
-  public $videoOwnerChannelId;
-  public $videoOwnerChannelTitle;
 
   public function setChannelId($channelId)
   {
@@ -114,21 +112,5 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   public function getTitle()
   {
     return $this->title;
-  }
-  public function setVideoOwnerChannelId($videoOwnerChannelId)
-  {
-    $this->videoOwnerChannelId = $videoOwnerChannelId;
-  }
-  public function getVideoOwnerChannelId()
-  {
-    return $this->videoOwnerChannelId;
-  }
-  public function setVideoOwnerChannelTitle($videoOwnerChannelTitle)
-  {
-    $this->videoOwnerChannelTitle = $videoOwnerChannelTitle;
-  }
-  public function getVideoOwnerChannelTitle()
-  {
-    return $this->videoOwnerChannelTitle;
   }
 }

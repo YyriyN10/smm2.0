@@ -287,6 +287,125 @@ a{
     font-size: 14px;
   }
 
+  @media(max-width: 440px){
+    font-size: 12px;
+  }
+
+  &.accent-btn{
+    padding: 12px 32px;
+    background: $color-accent_gradient;
+    color: $color-black !important;
+    border-radius: 1000px;
+
+    svg{
+      width: 24px;
+      height: auto;
+      margin-right: 8px;
+      transition: all 0.2s;
+
+      path{
+        fill: $color-black;
+      }
+    }
+
+    &:hover{
+      svg{
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  &.arrow-btn{
+    padding-bottom: 8px;
+    border-bottom: 1px solid #FFFEFE;
+    border-radius: 0;
+    background: none;
+    font-size: 18px;
+
+    @media(max-width: 992px){
+      font-size: 16px;
+    }
+
+    @media(max-width: 575px){
+      font-size: 14px;
+    }
+
+    svg{
+      width: 24px;
+      height: auto;
+      margin-left: 24px;
+      transition: all 0.2s;
+    }
+
+    &:hover{
+      svg{
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  &.marker-btn{
+    border-radius: 0;
+    background: none;
+    position: relative;
+    color: #FFFEFE;
+    transition: all 0.5s;
+
+    .arrow{
+      width: 24px;
+      height: auto;
+      margin-left: 24px;
+      transition: all 0.2s;
+      position: relative;
+      z-index: 3;
+
+      path{
+        stroke: #FFFEFE;
+        transition: all 0.5s;
+      }
+    }
+
+    .btn-text{
+      position: relative;
+      z-index: 3;
+    }
+
+    .animation-wrapper{
+      position: absolute;
+      inset: 2px -16px 7px;
+      z-index: 1;
+      overflow: hidden;
+      border-radius: 100px;
+
+      .hover-line{
+        width: 100%;
+        height: auto;
+        transition: all 0.2s;
+        transform: translateX(-110%);
+        transition-delay: 0.2s;
+      }
+
+    }
+
+    &:hover{
+      color: $color-black;
+
+      .arrow{
+        path{
+          stroke: $color-black;
+        }
+      }
+
+      .animation-wrapper{
+
+        .hover-line{
+          transform: translateX(0);
+        }
+
+      }
+    }
+  }
+
 
   &:hover{
 
@@ -340,6 +459,25 @@ a{
 
   @media(max-width: 575px){
     font-size: 26px;
+  }
+}
+
+.medium-title{
+  font-family: $f-bold;
+  font-size: 32px;
+  line-height: 150%;
+  text-transform: uppercase;
+
+  @media(max-width: 1200px){
+    font-size: 28px;
+  }
+
+  @media(max-width: 575px){
+    font-size: 26px;
+  }
+
+  @media(max-width: 440px){
+    font-size: 24px;
   }
 }
 
@@ -428,6 +566,16 @@ form{
       }
     }
   }
+}
+
+/*--- indent ---*/
+
+.indent-top-big{
+  padding-top: 140px;
+}
+
+.indent-bottom-big{
+  padding-bottom: 140px;
 }
 
 /*.test{
