@@ -428,7 +428,7 @@ a{
   }
 
   @media(max-width: 768px){
-    font-size: 40px;
+    font-size: 38px;
   }
 
   @media(max-width: 575px){
@@ -572,10 +572,50 @@ form{
 
 .indent-top-big{
   padding-top: 140px;
+
+  @media(max-width: 1200px){
+    padding-top: 130px;
+  }
+
+  @media(max-width: 992px){
+    padding-top: 120px;
+  }
+
+  @media(max-width: 767px){
+    padding-top: 110px;
+  }
+
+  @media(max-width: 575px){
+    padding-top: 90px;
+  }
+
+  @media(max-width: 440px){
+    padding-top: 80px;
+  }
 }
 
 .indent-bottom-big{
   padding-bottom: 140px;
+
+  @media(max-width: 1200px){
+    padding-bottom: 130px;
+  }
+
+  @media(max-width: 992px){
+    padding-bottom: 120px;
+  }
+
+  @media(max-width: 767px){
+    padding-bottom: 110px;
+  }
+
+  @media(max-width: 575px){
+    padding-bottom: 90px;
+  }
+
+  @media(max-width: 440px){
+    padding-bottom: 80px;
+  }
 }
 
 /*.test{

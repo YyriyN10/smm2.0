@@ -192,18 +192,52 @@
           </div>
           <div class="row mobile">
             <div class="accordion col-12" id="accordion-services">
-              <div class="card">
-                <div class="card-header">
-                  <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                    Collapsible Group Item #1
-                  </a>
-                </div>
-                <div id="collapseOne" class="collapse show" data-parent="#accordion-services">
-                  <div class="card-body">
-                    Lorem ipsum..
+              <?php foreach( $homeOurServicesList as $index=>$item ):?>
+                <div class="card">
+                  <div class="card-header">
+                    <a class="card-link collapsed" data-toggle="collapse" href="#servicesHome<?php echo $index;?>">
+                      <span class="name"><?php echo $item['name'];?></span>
+                      <span class="description"><?php echo $item['description'];?></span>
+                      <span class="indicator">
+                        <span class="inner">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="59" height="47" viewBox="0 0 59 47" fill="none">
+                            <path d="M2.91836 2.94095C18.3933 14.5192 33.2644 28.1408 49.2156 38.6171C56.849 43.6305 45.6043 23.9901 45.0001 19.4997C44.229 13.768 51.6328 39.3332 55.5378 43.4476C57.0832 45.0758 33.3038 42.4316 31 44" stroke="#1C1C1C" stroke-width="5" stroke-linecap="round"/>
+                          </svg>
+                        </span>
+                      </span>
+                    </a>
+                  </div>
+                  <div id="servicesHome<?php echo $index;?>" class="collapse" data-parent="#accordion-services">
+                    <div class="card-body">
+                      <svg class="common-bg-element" xmlns="http://www.w3.org/2000/svg" width="661" height="694" viewBox="0 0 661 694" fill="none">
+                        <path d="M495.833 34.723C451.9 32.7894 410.648 57.3226 374.852 79.9557C322.942 112.778 269.261 151.241 229.385 198.493C218.534 211.351 208.061 222.321 232.452 218.979C245.8 217.149 258.683 212.795 271.711 209.361C342.55 190.691 314.309 196.211 384.712 179.59C420.004 171.258 455.566 164.399 491.691 161.041C500.441 160.227 508.397 159.814 517.119 159.749C528.035 159.668 541.692 155.854 520.463 169.114C428.083 226.818 329.165 273.452 237.122 331.857C204.593 352.498 177.368 375.999 154.724 407.01C148.744 415.198 145.866 419.285 158.76 415.129C245.708 387.102 330.503 353.205 418.25 327.35C470.326 312.005 506.855 302.285 559.325 292.503C575.779 289.436 592.269 285.992 608.978 285.045C615.084 284.7 627.768 282.608 626.961 288.673C625.781 297.557 613.955 301.245 606.224 305.771C584.869 318.273 562.315 328.611 540.105 339.52C455.531 381.062 369.468 419.485 285.133 461.534C227.779 490.131 167.809 518.863 118.348 560.414C104.83 571.77 87.46 589.681 75.5212 602.776C62.276 617.303 46.2159 633.454 36.4829 650.835C27.204 667.405 48.5442 654.817 61.8768 650.322C112.544 633.239 234.133 585.9 270.851 571.877C341.67 544.83 427.859 511.405 501.089 485.292C527.667 475.815 550.099 469.641 576.47 463.296" stroke="url(#paint0_linear_1661_8690_m<?php echo $index;?>)" stroke-width="68" stroke-linecap="round"/>
+                        <defs>
+                          <linearGradient id="paint0_linear_1661_8690_m<?php echo $index;?>" x1="48.2786" y1="337.336" x2="623.722" y2="362.664" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#DBFF45"/>
+                            <stop offset="1" stop-color="#CCFF26"/>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+	                    <?php if( $item['icons_list'] ):?>
+		                    <?php foreach( $item['icons_list'] as $icon ):?>
+                          <div class="icon-wrapper">
+                            <img src="<?php echo $icon['icon'];?>" alt="" >
+                          </div>
+		                    <?php endforeach;?>
+	                    <?php endif;?>
+
+                      <div class="pic-wrapper">
+                        <img
+                            class="lazy"
+                            data-src="<?php echo wp_get_attachment_image_src($item['image'], 'full')[0];?>"
+                            alt="<?php echo get_post_meta($item['image'], '_wp_attachment_image_alt', TRUE);?>"
+                        >
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              <?php endforeach;?>
+
             </div>
           </div>
           <div class="inner-shape"></div>

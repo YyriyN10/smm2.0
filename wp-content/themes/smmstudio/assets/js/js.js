@@ -96,7 +96,10 @@ jQuery(function($) {
 
     $('.home-our-services .tab-content .tab-pane:nth-child(2)').addClass('active');
 
-    console.log(100);
+    $('.home-our-services .card:first-child .card-link').removeClass('collapsed');
+
+    $('.home-our-services .card:first-child .collapse').addClass('show');
+
   }
 
   /**
@@ -113,7 +116,33 @@ jQuery(function($) {
       slidesToScroll: 1,
       arrows: false,
       fade: false,
-      rows: 2
+      rows: 2,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 7,
+          }
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 5,
+          }
+        },
+        {
+          breakpoint: 575,
+          settings: {
+            slidesToShow: 3,
+          }
+        },
+        {
+          breakpoint: 360,
+          settings: {
+            slidesToShow: 2,
+          }
+        }
+      ]
     });
   }
 
@@ -131,6 +160,26 @@ jQuery(function($) {
       slidesToScroll: 1,
       arrows: false,
       fade: false,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+          }
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 2,
+          }
+        },
+        {
+          breakpoint: 575,
+          settings: {
+            slidesToShow: 1,
+          }
+        }
+      ]
     });
 
   }

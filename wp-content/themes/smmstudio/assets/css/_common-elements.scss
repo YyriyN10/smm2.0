@@ -67,9 +67,17 @@
     .slick-slide{
       margin: 0 16px;
 
+      @media(max-width: 767px){
+        margin: 0 12px;
+      }
+
       div{
         &:nth-child(1){
           margin-bottom: 32px;
+
+          @media(max-width: 767px){
+            margin-bottom: 24px;
+          }
         }
       }
     }
@@ -88,6 +96,22 @@
       color: $accent;
       margin-bottom: 210px;
       text-transform: uppercase;
+
+      @media(max-width: 1200px){
+        margin-bottom: 185px;
+      }
+
+      @media(max-width: 992px){
+        margin-bottom: 155px;
+      }
+
+      @media(max-width: 767px){
+        margin-bottom: 125px;
+      }
+
+      @media(max-width: 575px){
+        margin-bottom: 100px;
+      }
     }
 
     .svg-shape {
@@ -117,6 +141,18 @@
       clip-path: polygon(100% 0%, 100% 100%, 0 100%, 0 275px, calc(100% - 130px) 275px, calc(100% - 130px) 0);
       z-index: 1;
       border-radius: 54px;
+
+      @media(max-width: 1200px){
+        clip-path: polygon(100% 0%, 100% 100%, 0 100%, 0 240px, calc(100% - 130px) 240px, calc(100% - 130px) 0);
+      }
+
+      @media(max-width: 767px){
+        clip-path: polygon(100% 0%, 100% 100%, 0 100%, 0 210px, calc(100% - 130px) 210px, calc(100% - 130px) 0);
+      }
+
+      @media(max-width: 380px){
+        clip-path: polygon(100% 0%, 100% 100%, 0 100%, 0 190px, calc(100% - 130px) 190px, calc(100% - 130px) 0);
+      }
     }
 
     .rev-slider-wrapper{
@@ -125,8 +161,8 @@
 
       .decor{
         position: absolute;
-        width: 120px;
-        height: 120px;
+        width: clamp(60px, 6.25vw, 120px);
+        height: clamp(60px, 6.25vw, 120px);
         border-radius: 50%;
         background: $color-accent_gradient;
         z-index: 3;
@@ -134,10 +170,22 @@
         top: -73px;
         transform: translateX(-50%);
 
+        @media(max-width: 992px){
+          top: -45px;
+        }
+
         svg{
           position: absolute;
-          left: 25px;
-          bottom: 30px;
+          left: 1.3vw;
+          bottom: 1.56vw;
+          width: 5.26vw;
+          height: auto;
+
+          @media(max-width: 767px){
+            width: 40px;
+            left: 15px;
+            bottom: 20px;
+          }
         }
       }
 
@@ -156,7 +204,7 @@
           .company{
             color: #FFFEFE;
             font-family: $f-med;
-            font-size: 24.577px;
+            font-size: clamp(16px, 1.3vw, 24.577px);
             line-height: 150%;
             width: 100%;
           }
@@ -164,7 +212,7 @@
           .name{
             color: #FFFEFE;
             font-family: $f-med;
-            font-size: 24.577px;
+            font-size: clamp(16px, 1.3vw, 24.577px);
             line-height: 150%;
             width: 100%;
             margin-bottom: 0;
@@ -173,7 +221,7 @@
           .position{
             color: #FFFEFE;
             font-family: $f-med;
-            font-size: 18.433px;
+            font-size: clamp(14px, 0.98vw, 18.433px);
             line-height: 120%;
             margin-bottom: 0;
             margin-top: 8px;
@@ -185,7 +233,7 @@
             .info{
               position: absolute;
               inset: 0;
-              padding: 32px;
+              padding: clamp(16px, 1.66vw, 32px);
               z-index: 2;
               background: linear-gradient(97deg, #366FFF 12.5%, #0039C7 44.94%, #002789 91.95%);
               color: #FFFEFE;
@@ -214,7 +262,7 @@
             .info{
               position: absolute;
               inset: 0;
-              padding: 32px;
+              padding: clamp(16px, 1.66vw, 32px);
               z-index: 2;
               background-color: rgba(24, 26, 34, 0.5);
               color: #FFFEFE;
@@ -276,6 +324,18 @@
       background-color: rgba(0,0,0,0);
       border: none !important;
 
+      @media(max-width: 767px){
+        padding: 24px 32px;
+      }
+
+      @media(max-width: 575px){
+        padding: 16px 24px;
+      }
+
+      @media(max-width: 440px){
+        padding: 16px;
+      }
+
       .card-link{
         display: flex;
         align-items: center;
@@ -287,12 +347,49 @@
           font-family: $f-S-bold;
           font-size: 24px;
           line-height: 150%;
+
+          @media(max-width: 1200px){
+            font-size: 22px;
+          }
+
+          @media(max-width: 992px){
+            width: calc(100% - 92px);
+          }
+
+          @media(max-width: 767px){
+            font-size: 20px;
+            width: calc(100% - 72px);
+          }
+
+          @media(max-width: 575px){
+            width: calc(100% - 54px);
+          }
+
+          @media(max-width: 440px){
+            font-size: 18px;
+          }
+
+          @media(max-width: 360px){
+            font-size: 16px;
+          }
         }
 
         .indicator{
           width: 72px;
           transition: all 0.2s;
           transform: rotate(180deg);
+
+          @media(max-width: 992px){
+            width: 60px;
+          }
+
+          @media(max-width: 767px){
+            width: 40px;
+          }
+
+          @media(max-width: 575px){
+            width: 30px;
+          }
 
           svg{
             width: 100%;
@@ -314,6 +411,33 @@
       font-family: $f-med;
       font-size: 24px;
       line-height: 150%;
+
+      @media(max-width: 1200px){
+        font-size: 22px;
+      }
+
+      @media(max-width: 992px){
+        padding-right: 156px;
+      }
+
+      @media(max-width: 767px){
+        padding: 24px 104px 24px 32px;
+        font-size: 20px;
+      }
+
+      @media(max-width: 575px){
+        padding: 16px 78px 16px 24px;
+        font-size: 18px;
+      }
+
+      @media(max-width: 440px){
+        font-size: 16px;
+        padding: 16px;
+      }
+
+      @media(max-width: 360px){
+        font-size: 14px;
+      }
 
       p{
         margin-bottom: 10px;
@@ -357,6 +481,14 @@
         box-shadow: 0px 4px 30px 0px rgba(34, 30, 196, 0.10);
         overflow: unset;
         justify-content: flex-start;
+        
+        @media(max-width: 1300px){
+          width: 980px;
+        }
+
+        @media(max-width: 1200px){
+          width: 100%;
+        }
 
         form{
           background-color: #ffffff;
@@ -365,6 +497,31 @@
           position: relative;
           z-index: 2;
           margin: 0;
+          border-radius: 0 16px 16px 0;
+
+          @media(max-width: 1300px){
+            padding: 64px;
+            width: calc(100% - 220px);
+          }
+
+          @media(max-width: 840px){
+            padding: 64px 32px;
+          }
+
+          @media(max-width: 767px){
+            width: calc(100% - 150px);
+          }
+
+          @media(max-width: 575px){
+            padding: 32px 24px;
+            width: calc(100% - 100px);
+          }
+
+          @media(max-width: 440px){
+            width: 100%;
+            border-radius: 16px;
+            padding: 32px 16px;
+          }
 
           .form-part-title{
             color: $color-black;
@@ -400,7 +557,24 @@
             justify-content: flex-start;
             gap: 30px;
 
+            @media(max-width: 992px){
+              width: 100%;
+            }
+
+            .form-part-title{
+              margin-bottom: 0;
+            }
+
             .fields-wrapper{
+
+              @media(max-width: 1070px){
+                width: calc(50% - 15px);
+              }
+
+              @media(max-width: 992px){
+                width: 100%;
+              }
+
               .form-group{
                 margin-bottom: 10px;
 
@@ -454,6 +628,14 @@
                 height: 170px;
                 width: 285px;
 
+                @media(max-width: 1070px){
+                  width: calc(50% - 15px);
+                }
+
+                @media(max-width: 992px){
+                  width: 100%;
+                }
+
                 .form-control{
                   padding-top: 12px;
                 }
@@ -461,7 +643,16 @@
             }
 
             .ch-button-wrapper{
+              justify-content: flex-start;
+              gap: 30px;
 
+              @media(max-width: 1070px){
+                flex-wrap: wrap;
+
+                .form-check{
+                  width: 100%;
+                }
+              }
             }
           }
 
@@ -488,6 +679,22 @@
       background: linear-gradient(97deg, #366FFF 12.5%, #0039C7 44.94%, #002789 91.95%);
       width: 308px;
 
+      @media(max-width: 1200px){
+        width: 220px;
+      }
+
+      @media(max-width: 767px){
+        width: 150px;
+      }
+
+      @media(max-width: 575px){
+        width: 100px;
+      }
+
+      @media(max-width: 440px){
+        display: none;
+      }
+
       .form-decor-pic{
         position: absolute;
         height: auto;
@@ -496,18 +703,43 @@
           width: 126px;
           top: 14px;
           left: 59px;
+
+          @media(max-width: 1300px){
+            width: 100px;
+          }
+
+          @media(max-width: 767px){
+            width: 70px;
+            left: 50%;
+            margin-left: -35px;
+          }
         }
 
         &.air-pic{
-          width: 509px;
+          width: 26.5vw;
           right: 21px;
           top: 144px;
+
+          @media(max-width: 767px){
+            top: 50%;
+            transform: translateY(-50%);
+          }
         }
 
         &.inst-pic{
           right: 43px;
           bottom: 33px;
           width: 109px;
+
+          @media(max-width: 1300px){
+            width: 100px;
+          }
+
+          @media(max-width: 767px){
+            width: 70px;
+            right: 50%;
+            margin-right: -35px;
+          }
         }
       }
     }
