@@ -176,6 +176,30 @@
 				false
 			);
 
+			pll_register_string(
+				'smmstudio_general_prav_poly',
+				'Політика конфіденційності',
+				'Переклади загальних елементів',
+				false
+			);
+
+
+			pll_register_string(
+				'smmstudio_general_footer_menu_contacts',
+				'Контакти',
+				'Переклади загальних елементів',
+				false
+			);
+
+			pll_register_string(
+				'smmstudio_general_footer_menu_social',
+				'Слідкуйте за нами',
+				'Переклади загальних елементів',
+				false
+			);
+
+
+
 
 
 

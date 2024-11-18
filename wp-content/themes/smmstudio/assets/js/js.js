@@ -195,6 +195,112 @@ jQuery(function($) {
 
   }
 
+  /**
+   * Friends slider
+   */
+
+  if( $('#friends-slider').length ){
+
+    $('#friends-slider').slick({
+      autoplay: true,
+      autoplaySpeed: 1500,
+      slidesToShow: 4,
+      pauseOnHover: false,
+      slidesToScroll: 1,
+      arrows: false,
+      fade: false,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+          }
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 2,
+          }
+        },
+        {
+          breakpoint: 575,
+          settings: {
+            slidesToShow: 1,
+            fade: true
+          }
+        }
+      ]
+    });
+  }
+
+  /**
+   * Fixed menu new
+   */
+
+  $(document).scroll(function() {
+    let scrollTop = $(this).scrollTop();
+
+    if ( scrollTop > 1 ) {
+
+      $('.site-header').addClass('fixed');
+    } else {
+
+      $('.site-header').removeClass('fixed');
+    }
+  });
+
+  let positionScrollHeader = $(window).scrollTop();
+
+  $(window).scroll(function() {
+
+    let scroll = $(window).scrollTop();
+
+    if( scroll > positionScrolHeader) {
+
+      $('.site-header').removeClass('fixed-vis');
+
+      $('#lang-nav ul').fadeOut(200);
+
+      if( winWid > 768 ){
+
+        $('.main-menu .menu-item-has-children .sub-menu').slideUp(200);
+        $('.main-menu .menu-item-has-children').removeClass('open-sub-menu');
+      }
+
+
+    } else {
+
+      $('.site-header').addClass('fixed-vis');
+
+    }
+
+    positionScrolHeader = scroll;
+
+  });
+
+  /**
+   * Mob menu new
+   */
+
+
+  $('.site-header #menu-toggle').on('click', function (e) {
+
+    e.preventDefault();
+
+    $('.site-header').toggleClass('active-menu');
+    $(this).toggleClass('active');
+    $('.phone-lang-wrapper .phone').fadeToggle(500);
+    $('.header-menu-container').toggleClass('open-menu');
+
+    setTimeout(function () {
+      $('.main-menu').toggleClass('add-vis');
+      $('.mobile-phone').toggleClass('add-vis');
+      $('.working-time').toggleClass('add-vis');
+      $('.lang-list').toggleClass('add-vis');
+    }, 1000);
+
+  });
+
   //Fixed Menu
 
     jQuery(document).scroll(function() {

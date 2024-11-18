@@ -8,7 +8,7 @@
 
 <!-- SEO блок -->
 <section class="seo-block indent-bottom-big">
-	<div class="container container-fluid">
+	<div class="container-fluid">
 		<div class="row">
 			<h2 class="block-title col-12 text-center"><?php echo $args['title'];?></h2>
 		</div>
