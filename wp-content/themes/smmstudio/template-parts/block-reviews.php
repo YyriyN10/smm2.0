@@ -56,33 +56,42 @@
                 <div class="slide text-slide">
                   <div class="slide-wrapper">
                     <div class="info">
-                      <h3 class="company"><?php echo get_field('kampaniya');?></h3>
-                      <div class="description"></div>
-                      <a href="" rel="nofollow" class="button marker-btn">
-                        <span class="btn-text"><?php echo esc_html( pll__( 'Читати більше' ) ); ?></span>
-                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                          <path d="M19 12.5L13 18.5M19 12.5L13 6.5M19 12.5L5 12.5" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="animation-wrapper">
-                          <svg class="hover-line" xmlns="http://www.w3.org/2000/svg" width="257" height="54" viewBox="0 0 257 54" fill="none">
-                          <path d="M25.9846 26.3114C35.8613 26.2101 43.4683 26.0802 53.3453 26.0308C71.8754 25.9381 90.3984 26.3783 108.923 26.6519C119.138 26.8028 129.385 26.4964 139.594 26.7415C153.781 27.0823 167.82 28.0681 182.034 27.7314C200.576 27.2922 212.301 26.1182 230.85 25.7419" stroke="url(#paint0_linear_1661_9183)" stroke-width="51.2019" stroke-linecap="round"/>
-                          <defs>
-                            <linearGradient id="paint0_linear_1661_9183" x1="26.0001" y1="27.8206" x2="230.85" y2="25.7198" gradientUnits="userSpaceOnUse">
-                              <stop stop-color="#DBFF45"/>
-                              <stop offset="1" stop-color="#CCFF26"/>
-                            </linearGradient>
-                          </defs>
-                        </svg>
-                        </span>
+                      <div class="top-info">
+                        <h3 class="company"><?php echo get_field('kampaniya');?></h3>
+                        <div class="description"><?php the_excerpt();?></div>
+                      </div>
+                      <div class="bottom-info">
+	                      <?php
+		                      $reviewContent = get_the_content();
 
-                      </a>
-                      <div class="about">
-                        <div class="avatar">
-                          🙋‍♀️
-                        </div>
-                        <div>
-                          <p class="name"><?php the_title();?></p>
-                          <p class="position"></p>
+		                      if( !empty( $reviewContent ) ):?>
+                            <a href="#" rel="nofollow" id="<?php echo get_the_ID();?>" class="button marker-btn">
+                              <span class="btn-text"><?php echo esc_html( pll__( 'Читати більше' ) ); ?></span>
+                              <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                <path d="M19 12.5L13 18.5M19 12.5L13 6.5M19 12.5L5 12.5" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                              <span class="animation-wrapper">
+                              <svg class="hover-line" xmlns="http://www.w3.org/2000/svg" width="257" height="54" viewBox="0 0 257 54" fill="none">
+                              <path d="M25.9846 26.3114C35.8613 26.2101 43.4683 26.0802 53.3453 26.0308C71.8754 25.9381 90.3984 26.3783 108.923 26.6519C119.138 26.8028 129.385 26.4964 139.594 26.7415C153.781 27.0823 167.82 28.0681 182.034 27.7314C200.576 27.2922 212.301 26.1182 230.85 25.7419" stroke="url(#paint0_linear_1661_9183)" stroke-width="51.2019" stroke-linecap="round"/>
+                              <defs>
+                                <linearGradient id="paint0_linear_1661_9183" x1="26.0001" y1="27.8206" x2="230.85" y2="25.7198" gradientUnits="userSpaceOnUse">
+                                  <stop stop-color="#DBFF45"/>
+                                  <stop offset="1" stop-color="#CCFF26"/>
+                                </linearGradient>
+                              </defs>
+                            </svg>
+                            </span>
+                            </a>
+		                      <?php endif;?>
+
+                        <div class="about">
+                          <div class="avatar">
+                            🙋‍♀️
+                          </div>
+                          <div>
+                            <p class="name"><?php the_title();?></p>
+                            <p class="position"></p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -115,9 +124,6 @@
                   </div>
                 </div>
               <?php endif;?>
-
-
-
 
 					  <?php endwhile;?>
 				  <?php endif; ?>

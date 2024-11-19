@@ -26,6 +26,16 @@ body{
   outline: none !important;
 }
 
+.page{
+  margin: 0;
+  padding: 0;
+}
+
+.fixedPosition {
+  overflow: hidden !important;
+}
+
+
 .loader{
   position: fixed;
   top: 0;

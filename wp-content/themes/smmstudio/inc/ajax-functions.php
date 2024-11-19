@@ -1099,3 +1099,121 @@
 
 		wp_die();
 	}
+
+	/**
+   * Home cases
+   */
+
+	add_action('wp_ajax_home_cases_change', 'home_cases_change_callback');
+	add_action('wp_ajax_nopriv_home_cases_change', 'home_cases_change_callback');
+
+	function home_cases_change_callback(){
+
+	  $catId = $_POST['currentCaseCat'];
+
+	  $casesInList = array();
+
+	  if ( $catId == '176' ){
+	    $casesInList = array(4117, 4013, 4009, 4321);
+	  }
+
+	  if ( $catId == '20' ){
+	     $casesInList = array(865, 2617, 842, 2171);
+	  }
+
+	  if ( $catId == '27' ){
+	    $casesInList = array(2047);
+	  }
+
+	  $i = 0;
+
+			$argsHomeCases = array(
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'cases-cat-tax',
+						'field' => 'id',
+						'suppress_filters' => false,
+						'terms' => $catId,
+					)
+				),
+				'post_type' => 'cases',
+				'orderby' 	 => 'date',
+				'post_status' => 'publish',
+				'suppress_filters' => false,
+				'post__in' => $casesInList,
+				'posts_per_page' => 4
+			);
+
+			$homeCases = new WP_Query( $argsHomeCases );
+
+			if ( $homeCases->have_posts() ) :
+
+			while ( $homeCases->have_posts() ) : $homeCases->the_post();
+			$i++;
+
+		?>
+        <a href="<?php the_permalink();?>" target="_blank" class="home-case-item">
+          <span class="inner">
+            <span class="case-logo">
+              <img src="<?php echo get_field('logotip_kejsa');?>" alt="">
+
+            </span>
+            <span class="info">
+              <span class="info-container">
+                <span class="scope"><?php echo get_field('sfera_deyatelnosti_-_kratko');?></span>
+                <?php
+                   $caseNumbers = get_field('czifry_kejsa');
+
+                   if ( $caseNumbers ):?>
+                <span class="numbers-wrapper">
+                  <span class="number-item">
+                     <span class="number"><?php echo $caseNumbers['kol-vo_zayavok_za_periud'];?></span>
+                     <?php if ( $caseNumbers['tip_stoimosti']['value'] == 'application' ):?>
+                        <span class="description"><?php echo esc_html( pll__( 'заявок за період' ) ); ?></span>
+                     <?php elseif ( $caseNumbers['tip_stoimosti']['value'] == 'sale' ):?>
+                        <span class="description"><?php echo esc_html( pll__( 'продаж за період' ) ); ?></span>
+                     <?php endif;?>
+                  </span>
+                  <span class="number-item">
+                    <?php if ( $caseNumbers['tip_stoimosti']['value'] == 'application' ):?>
+                      <span class="number"><?php echo $caseNumbers['srednyaya_stoimost_zayavki'];?></span>
+                      <span class="description"><?php echo esc_html( pll__( 'вартість заявки' ) ); ?></span>
+                    <?php elseif ( $caseNumbers['tip_stoimosti']['value'] == 'sale' ):?>
+                      <span class="number"><?php echo $caseNumbers['srednyaya_stoimost_prodazhi'];?></span>
+                      <span class="description"><?php echo esc_html( pll__( 'вартість продажу' ) ); ?></span>
+                    <?php endif;?>
+                  </span>
+                  <span class="number-item">
+                     <span class="number"><?php echo $caseNumbers['kol-vo_dnej_raboty'];?></span>
+                     <span class="description"><?php echo esc_html( pll__( 'днів роботи' ) ); ?></span>
+                  </span>
+                </span>
+
+                <?php endif;?>
+              </span>
+            </span>
+          </span>
+          <span class="shape-container">
+            <span class="shape"></span>
+            <svg class="svg-shape" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="svg-case-shape-<?php echo $i;?>">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="svg-case-shape-<?php echo $i;?>" />
+                  <feComposite in="SourceGraphic" in2="svg-case-shape-<?php echo $i;?>" operator="atop"/>
+                </filter>
+              </defs>
+            </svg>
+          </span>
+
+        </a>
+
+			<?php endwhile;?>
+
+			<?php endif; ?>
+		<?php wp_reset_postdata();
+
+		wp_die();
+
+
+	}

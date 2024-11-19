@@ -42,7 +42,7 @@
 			'hierarchical'       => true,
 			'menu_position'      => 7,
 			'menu_icon'          => 'dashicons-testimonial',
-			'supports'           => array( 'title', 'thumbnail' )
+			'supports'           => array( 'title', 'thumbnail', 'excerpt', 'editor' )
 		);
 
 		register_post_type( 'reviews', $args );

@@ -198,6 +198,41 @@
 				false
 			);
 
+			pll_register_string(
+				'smmstudio_general_case_info_1',
+				'заявок за період',
+				'Переклади загальних елементів',
+				false
+			);
+
+			pll_register_string(
+				'smmstudio_general_case_info_2',
+				'продаж за період',
+				'Переклади загальних елементів',
+				false
+			);
+
+			pll_register_string(
+				'smmstudio_general_case_info_3',
+				'вартість заявки',
+				'Переклади загальних елементів',
+				false
+			);
+
+			pll_register_string(
+				'smmstudio_general_case_info_4',
+				'вартість продажу',
+				'Переклади загальних елементів',
+				false
+			);
+
+			pll_register_string(
+				'smmstudio_general_case_info_5',
+				'днів роботи',
+				'Переклади загальних елементів',
+				false
+			);
+
 
 
 

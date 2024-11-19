@@ -237,8 +237,15 @@
               z-index: 2;
               background: linear-gradient(97deg, #366FFF 12.5%, #0039C7 44.94%, #002789 91.95%);
               color: #FFFEFE;
+              display: flex;
+              flex-wrap: wrap;
+              align-content: space-between;
             }
 
+            .top-info,
+            .bottom-info{
+              width: 100%;
+            }
 
             .about{
               display: flex;
